@@ -1,4 +1,4 @@
-package com.example.playon;
+package com.example.playon.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.playon.R;
 
 
 public class IntroActivity extends AppCompatActivity {
