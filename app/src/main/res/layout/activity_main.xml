@@ -41,8 +41,8 @@
                     android:id="@+id/viewpageSlider"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingStart="50dp"
-                    android:paddingEnd="50dp"
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="12dp"
-                android:text="Best Movies"
+                android:text="Movies"
                 android:textColor="@color/yellow"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -136,7 +136,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="12dp"
-                android:text="Upcomming Movies"
+                android:text="Upcomming "
                 android:textColor="@color/yellow"
                 android:textSize="18dp"
                 android:textStyle="bold" />

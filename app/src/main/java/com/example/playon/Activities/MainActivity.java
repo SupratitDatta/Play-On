@@ -2,7 +2,9 @@ package com.example.playon.Activities;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -10,19 +12,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.playon.Adapters.FilmListAdapter;
 import com.example.playon.Adapters.SliderAdapters;
+import com.example.playon.Domains.ListFilm;
 import com.example.playon.Domains.SliderItems;
 import com.example.playon.R;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView.Adapter adapterBestMovies,adapterUpComing,adapterCategory;
+    private RecyclerView recycleViewBestMovies,recycleViewUpcoming,recycleViewCategory;
+    private RequestQueue mRequestQueue;
+    private StringRequest mStringRequest,mStringRequest2,mStringRequest3;
+    private ProgressBar loading1,loading2,loading3;
     private ViewPager2 viewPager2;
     private Handler slideHandler = new Handler();
 
@@ -33,9 +48,36 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         banners();
+        sendRequestBestMovies();
     }
+
+    private void sendRequestBestMovies() {
+        mRequestQueue= Volley.newRequestQueue(this);
+        loading1.setVisibility(View.VISIBLE);
+        mStringRequest=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=1", response -> {
+            Gson gson=new Gson();
+            loading1.setVisibility(View.GONE);
+            ListFilm items=gson.fromJson(response, ListFilm.class);
+            adapterBestMovies=new FilmListAdapter(items);
+            recycleViewBestMovies.setAdapter(adapterBestMovies);
+        }, error -> {
+            loading1.setVisibility(View.GONE);
+            Log.i("Play On","onErrorResponse: "+error.toString());
+        });
+        mRequestQueue.add(mStringRequest);
+    }
+
     private void initView() {
         viewPager2 = findViewById(R.id.viewpageSlider);
+        recycleViewBestMovies=findViewById(R.id.view1);
+        recycleViewBestMovies.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recycleViewUpcoming=findViewById(R.id.view2);
+        recycleViewUpcoming.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recycleViewCategory=findViewById(R.id.view3);
+        recycleViewCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        loading1=findViewById(R.id.progressBar1);
+        loading2=findViewById(R.id.progressBar2);
+        loading3=findViewById(R.id.progressBar3);
     }
 
     private void banners() {
