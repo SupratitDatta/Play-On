@@ -23,8 +23,8 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="128dp"
-                android:text="Log In"
+                android:layout_marginTop="50dp"
+                android:text="Register"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="50dp"
@@ -34,16 +34,31 @@
                 android:id="@+id/editTextText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/edit_text_bck"
+                android:ems="10"
                 android:hint="UserName"
+                android:inputType="text"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:ems="10"
-                android:background="@drawable/edit_text_bck"
-                android:layout_marginTop="128dp"
+                android:textColorHint="@color/white" />
+
+            <EditText
+                android:id="@+id/editTextemail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                android:inputType="text" />
+                android:background="@drawable/edit_text_bck"
+                android:ems="10"
+                android:hint="Email Id"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
 
             <EditText
                 android:id="@+id/editTextpassword"
@@ -60,6 +75,21 @@
                 android:layout_marginEnd="32dp"
                 android:inputType="textPassword" />
 
+            <EditText
+                android:id="@+id/editTextpassword2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/edit_text_bck"
+                android:ems="10"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
@@ -73,36 +103,36 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/registerBtn"
                 style="@android:style/Widget.Button"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginStart="32dp"
-                android:background="@drawable/orange_button_bck"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/orange_button_bck"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dont't have an account"
+                android:layout_marginTop="32dp"
+                android:text="Already have an account"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="16dp"
-                android:layout_marginTop="32dp"/>
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Register Now"
+                android:text="Sign In"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

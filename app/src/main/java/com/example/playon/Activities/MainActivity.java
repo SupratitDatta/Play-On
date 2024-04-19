@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         initView();
         banners();
         sendRequestBestMovies();
+        sendRequestUpComing();
+//        sendRequestCategory();
     }
 
     private void sendRequestBestMovies() {
@@ -66,6 +68,38 @@ public class MainActivity extends AppCompatActivity {
         });
         mRequestQueue.add(mStringRequest);
     }
+
+    private void sendRequestUpComing() {
+        mRequestQueue= Volley.newRequestQueue(this);
+        loading2.setVisibility(View.VISIBLE);
+        mStringRequest3=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=2", response -> {
+            Gson gson=new Gson();
+            loading2.setVisibility(View.GONE);
+            ListFilm items=gson.fromJson(response, ListFilm.class);
+            adapterUpComing=new FilmListAdapter(items);
+            recycleViewUpcoming.setAdapter(adapterUpComing);
+        }, error -> {
+            loading2.setVisibility(View.GONE);
+            Log.i("Play On","onErrorResponse: "+error.toString());
+        });
+        mRequestQueue.add(mStringRequest3);
+    }
+
+//    private void sendRequestCategory() {
+//        mRequestQueue= Volley.newRequestQueue(this);
+//        loading3.setVisibility(View.VISIBLE);
+//        mStringRequest3=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=3", response -> {
+//            Gson gson=new Gson();
+//            loading3.setVisibility(View.GONE);
+//            ListFilm items=gson.fromJson(response, ListFilm.class);
+//            adapterCategory=new FilmListAdapter(items);
+//            recycleViewCategory.setAdapter(adapterCategory);
+//        }, error -> {
+//            loading3.setVisibility(View.GONE);
+//            Log.i("Play On","onErrorResponse: "+error.toString());
+//        });
+//        mRequestQueue.add(mStringRequest3);
+//    }
 
     private void initView() {
         viewPager2 = findViewById(R.id.viewpageSlider);

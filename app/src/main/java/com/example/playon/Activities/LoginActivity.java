@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +17,7 @@ import com.example.playon.R;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText userEdit,passEdit;
+    private TextView registerBtn;
     private Button loginBtn;
 
     @Override
@@ -30,7 +32,17 @@ public class LoginActivity extends AppCompatActivity {
     private  void initView() {
         userEdit=findViewById(R.id.editTextText);
         passEdit=findViewById(R.id.editTextpassword);
-        loginBtn=findViewById(R.id.loginBtn);
+        loginBtn=findViewById(R.id.registerBtn);
+        registerBtn=findViewById(R.id.register);
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                Toast.makeText(LoginActivity.this, "Redirecting to Registration Page", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
