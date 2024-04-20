@@ -1,10 +1,13 @@
 package com.example.playon.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar loading1,loading2,loading3,loading4;
     private ViewPager2 viewPager2;
     private Handler slideHandler = new Handler();
+    private ImageView profileImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,6 +139,16 @@ public class MainActivity extends AppCompatActivity {
         loading2=findViewById(R.id.progressBar2);
         loading3=findViewById(R.id.progressBar3);
         loading4=findViewById(R.id.progressBar4);
+
+        profileImg=findViewById(R.id.profile_pic);
+
+        profileImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                Toast.makeText(MainActivity.this, "Redirecting to Profile Page", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void banners() {
