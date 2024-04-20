@@ -77,7 +77,6 @@ public class DetailActivity extends AppCompatActivity {
                 adapterCategory=new CategoryEachFilmListAdapter(item.getGenres());
                 recyclerViewCategory.setAdapter(adapterCategory);
             }
-
         }, volleyError -> progressBar.setVisibility(View.GONE));
         mRequestQueue.add(mStringRequest);
     }

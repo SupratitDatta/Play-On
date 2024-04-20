@@ -36,11 +36,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView.Adapter adapterBestMovies,adapterUpComing,adapterCategory;
-    private RecyclerView recycleViewBestMovies,recycleViewUpcoming,recycleViewCategory;
+    private RecyclerView.Adapter adapterBestMovies,adapterUpComing,adapterCategory,adapterNew;
+    private RecyclerView recycleViewBestMovies,recycleViewUpcoming,recycleViewCategory, recycleViewNew;
     private RequestQueue mRequestQueue;
-    private StringRequest mStringRequest,mStringRequest2,mStringRequest3;
-    private ProgressBar loading1,loading2,loading3;
+    private StringRequest mStringRequest,mStringRequest2,mStringRequest3, mStringRequest4;
+    private ProgressBar loading1,loading2,loading3,loading4;
     private ViewPager2 viewPager2;
     private Handler slideHandler = new Handler();
 
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         sendRequestBestMovies();
         sendRequestUpComing();
         sendRequestCategory();
+        sendRequestNew();
     }
 
     private void sendRequestBestMovies() {
@@ -104,6 +105,22 @@ public class MainActivity extends AppCompatActivity {
         mRequestQueue.add(mStringRequest3);
     }
 
+    private void sendRequestNew() {
+        mRequestQueue= Volley.newRequestQueue(this);
+        loading4.setVisibility(View.VISIBLE);
+        mStringRequest=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=4", response -> {
+            Gson gson=new Gson();
+            loading4.setVisibility(View.GONE);
+            ListFilm items=gson.fromJson(response, ListFilm.class);
+            adapterNew=new FilmListAdapter(items);
+            recycleViewNew.setAdapter(adapterNew);
+        }, error -> {
+            loading4.setVisibility(View.GONE);
+            Log.i("Play On","onErrorResponse: "+error.toString());
+        });
+        mRequestQueue.add(mStringRequest);
+    }
+
     private void initView() {
         viewPager2 = findViewById(R.id.viewpageSlider);
         recycleViewBestMovies=findViewById(R.id.view1);
@@ -112,9 +129,12 @@ public class MainActivity extends AppCompatActivity {
         recycleViewUpcoming.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recycleViewCategory=findViewById(R.id.view3);
         recycleViewCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recycleViewNew=findViewById(R.id.view4);
+        recycleViewNew.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         loading1=findViewById(R.id.progressBar1);
         loading2=findViewById(R.id.progressBar2);
         loading3=findViewById(R.id.progressBar3);
+        loading4=findViewById(R.id.progressBar4);
     }
 
     private void banners() {

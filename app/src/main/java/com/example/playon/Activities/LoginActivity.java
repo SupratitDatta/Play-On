@@ -33,13 +33,13 @@ public class LoginActivity extends AppCompatActivity {
         userEdit=findViewById(R.id.editTextText);
         passEdit=findViewById(R.id.editTextpassword);
         loginBtn=findViewById(R.id.registerBtn);
-        registerBtn=findViewById(R.id.register);
+        registerBtn=findViewById(R.id.signinBtn);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-                Toast.makeText(LoginActivity.this, "Redirecting to Registration Page", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Redirecting to Sign Up Page", Toast.LENGTH_SHORT).show();
             }
         });
 

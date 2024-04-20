@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:text="Register"
+                android:text="Sign Up"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="50dp"
@@ -109,7 +109,7 @@
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/orange_button_bck"
-                android:text="Register"
+                android:text="Sign Up"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -125,7 +125,7 @@
                 android:textSize="16dp" />
 
             <TextView
-                android:id="@+id/register"
+                android:id="@+id/sign_inBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sign In"
