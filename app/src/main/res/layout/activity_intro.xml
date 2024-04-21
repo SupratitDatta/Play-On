@@ -49,7 +49,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/userName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Discover your"
@@ -57,7 +57,7 @@
                     android:textSize="27dp" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/userEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Movie/Show"
@@ -76,6 +76,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="Watch the latest movies and web series according to your genre and wish, anytime, anywhere online."
                     android:textColor="@color/grey"
                     android:textSize="17dp" />
@@ -84,8 +85,8 @@
                     android:id="@+id/getInBtn"
                     style="@android:style/Widget.Button"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/orange_button_bck"
                     android:text="Play Onn"
                     android:textColor="@color/white"

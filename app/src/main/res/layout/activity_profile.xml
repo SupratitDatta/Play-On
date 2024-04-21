@@ -42,7 +42,7 @@
                     app:srcCompat="@drawable/batman" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -56,15 +56,15 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/userEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="supratitdatta@gmail.com"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/textView"
-                    app:layout_constraintStart_toStartOf="@+id/textView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    app:layout_constraintEnd_toEndOf="@+id/userName"
+                    app:layout_constraintStart_toStartOf="@+id/userName"
+                    app:layout_constraintTop_toBottomOf="@+id/userName" />
 
                 <LinearLayout
                     android:layout_width="416dp"
@@ -74,7 +74,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/userEmail"
                     app:layout_constraintVertical_bias="1.0">
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -149,23 +149,6 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <!--                <androidx.appcompat.widget.AppCompatButton-->
-                    <!--                    android:id="@+id/button5"-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="60dp"-->
-                    <!--                    android:layout_marginStart="32dp"-->
-                    <!--                    android:layout_marginTop="10dp"-->
-                    <!--                    android:layout_marginEnd="32dp"-->
-                    <!--                    android:textSize="18sp"-->
-                    <!--                    android:textStyle="bold"-->
-                    <!--                    style="@android:style/Widget.Button"-->
-                    <!--                    android:layout_marginBottom="10dp"-->
-                    <!--                    android:background="@drawable/btn_background_1"-->
-                    <!--                    android:drawableStart="@drawable/ic_5"-->
-                    <!--                    android:drawablePadding="20dp"-->
-                    <!--                    android:paddingStart="20dp"-->
-                    <!--                    android:text="Fingerprint Settings"-->
-                    <!--                    android:textAlignment="viewStart" />-->
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/mainPage"
                         style="@android:style/Widget.Button"
@@ -181,7 +164,7 @@
                         android:text="Back to Main Page" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/logout"
+                        android:id="@+id/logoutBtn"
                         style="@android:style/Widget.Button"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="32dp"

@@ -31,7 +31,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/signupUsername"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
@@ -46,7 +46,7 @@
                 android:textColorHint="@color/white" />
 
             <EditText
-                android:id="@+id/editTextemail"
+                android:id="@+id/signupEmail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
@@ -55,13 +55,13 @@
                 android:background="@drawable/edit_text_bck"
                 android:ems="10"
                 android:hint="Email Id"
-                android:inputType="textPassword"
+                android:inputType="textEmailAddress"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white" />
 
             <EditText
-                android:id="@+id/editTextpassword"
+                android:id="@+id/signupPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="Password"
@@ -76,7 +76,7 @@
                 android:inputType="textPassword" />
 
             <EditText
-                android:id="@+id/editTextpassword2"
+                android:id="@+id/signupConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
@@ -100,11 +100,17 @@
                 android:textSize="16dp"
                 android:layout_marginTop="16dp"/>
 
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/signupProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/registerBtn"
+                android:id="@+id/signUpBtn"
                 style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="32dp"
@@ -125,10 +131,10 @@
                 android:textSize="16dp" />
 
             <TextView
-                android:id="@+id/sign_inBtn"
+                android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign In"
+                android:text="Log In"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16dp"

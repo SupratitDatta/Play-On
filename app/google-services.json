@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "276709509559",
+    "project_id": "play-on-b0d2c",
+    "storage_bucket": "play-on-b0d2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276709509559:android:c96f072dddba8d8862c032",
+        "android_client_info": {
+          "package_name": "com.example.playon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFCiWCXLmfuHnYfdvXi03amNoVqZnXiVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
