@@ -176,7 +176,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp"
-                android:text="Upcomming "
+                android:text="Upcoming "
                 android:textColor="@color/yellow"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -290,14 +290,14 @@
                         android:layout_height="24dp"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
-                        android:src="@drawable/btn_3"
+                        android:src="@drawable/btn_5"
                         app:tint="@color/white" />
 
                     <TextView
                         android:id="@+id/textView12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cart"
+                        android:text="Watchlist"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
                 </LinearLayout>

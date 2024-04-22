@@ -153,9 +153,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void banners() {
         List<SliderItems> sliderItems = new ArrayList<>();
-        sliderItems.add(new SliderItems(R.drawable.wide));
-        sliderItems.add(new SliderItems(R.drawable.wide1));
-        sliderItems.add(new SliderItems(R.drawable.wide3));
+        sliderItems.add(new SliderItems(R.drawable.wide0));
+        sliderItems.add(new SliderItems(R.drawable.wide2));
+        sliderItems.add(new SliderItems(R.drawable.wide9));
+        sliderItems.add(new SliderItems(R.drawable.wide4));
+        sliderItems.add(new SliderItems(R.drawable.wide5));
+        sliderItems.add(new SliderItems(R.drawable.wide6));
+        sliderItems.add(new SliderItems(R.drawable.wide7));
 
         viewPager2.setAdapter(new SliderAdapters(sliderItems, viewPager2, this));
         viewPager2.setClipToPadding(false);
