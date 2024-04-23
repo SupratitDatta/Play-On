@@ -25,7 +25,7 @@
             <ImageView
                 android:id="@+id/picDetail"
                 android:layout_width="match_parent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="35dp"
                 android:layout_height="400dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -58,13 +58,13 @@
                     android:id="@+id/bckImg"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/oval_btn_background"
                     android:padding="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/back" />
+                    android:src="@drawable/back"/>
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -121,7 +121,7 @@
                 android:id="@+id/movieNameTxt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="20dp"
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="20dp"
@@ -133,7 +133,7 @@
                 android:id="@+id/genreView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="8dp"
+                android:paddingStart="20dp"
                 android:paddingEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -144,8 +144,8 @@
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
                 android:text="Overview"
                 android:textColor="@color/yellow"
                 android:textSize="16dp"

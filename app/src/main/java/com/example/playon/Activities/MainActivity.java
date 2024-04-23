@@ -37,6 +37,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapterBestMovies,adapterUpComing,adapterCategory,adapterNew;
@@ -55,42 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         banners();
+        sendRequestCategory();
         sendRequestBestMovies();
         sendRequestUpComing();
-        sendRequestCategory();
         sendRequestNew();
-    }
-
-    private void sendRequestBestMovies() {
-        mRequestQueue= Volley.newRequestQueue(this);
-        loading1.setVisibility(View.VISIBLE);
-        mStringRequest=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=1", response -> {
-            Gson gson=new Gson();
-            loading1.setVisibility(View.GONE);
-            ListFilm items=gson.fromJson(response, ListFilm.class);
-            adapterBestMovies=new FilmListAdapter(items);
-            recycleViewBestMovies.setAdapter(adapterBestMovies);
-        }, error -> {
-            loading1.setVisibility(View.GONE);
-            Log.i("Play On","onErrorResponse: "+error.toString());
-        });
-        mRequestQueue.add(mStringRequest);
-    }
-
-    private void sendRequestUpComing() {
-        mRequestQueue= Volley.newRequestQueue(this);
-        loading3.setVisibility(View.VISIBLE);
-        mStringRequest3=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=2", response -> {
-            Gson gson=new Gson();
-            loading3.setVisibility(View.GONE);
-            ListFilm items=gson.fromJson(response, ListFilm.class);
-            adapterUpComing=new FilmListAdapter(items);
-            recycleViewUpcoming.setAdapter(adapterUpComing);
-        }, error -> {
-            loading3.setVisibility(View.GONE);
-            Log.i("Play On","onErrorResponse: "+error.toString());
-        });
-        mRequestQueue.add(mStringRequest3);
     }
 
     private void sendRequestCategory() {
@@ -109,21 +78,63 @@ public class MainActivity extends AppCompatActivity {
         mRequestQueue.add(mStringRequest3);
     }
 
-    private void sendRequestNew() {
-        mRequestQueue= Volley.newRequestQueue(this);
-        loading4.setVisibility(View.VISIBLE);
-        mStringRequest=new StringRequest(Request.Method.GET, "https://moviesapi.ir/api/v1/movies?page=4", response -> {
-            Gson gson=new Gson();
-            loading4.setVisibility(View.GONE);
-            ListFilm items=gson.fromJson(response, ListFilm.class);
-            adapterNew=new FilmListAdapter(items);
-            recycleViewNew.setAdapter(adapterNew);
+    private void sendRequestBestMovies() {
+        mRequestQueue = Volley.newRequestQueue(this);
+        loading1.setVisibility(View.VISIBLE);
+        Random random = new Random();
+        int pageNumber = random.nextInt(5) + 6;
+        String url = "https://moviesapi.ir/api/v1/movies?page=" + pageNumber;
+        mStringRequest = new StringRequest(Request.Method.GET, url, response -> {
+            Gson gson = new Gson();
+            loading1.setVisibility(View.GONE);
+            ListFilm items = gson.fromJson(response, ListFilm.class);
+            adapterBestMovies = new FilmListAdapter(items);
+            recycleViewBestMovies.setAdapter(adapterBestMovies);
         }, error -> {
-            loading4.setVisibility(View.GONE);
-            Log.i("Play On","onErrorResponse: "+error.toString());
+            loading1.setVisibility(View.GONE);
+            Log.i("Play On", "onErrorResponse: " + error.toString());
         });
         mRequestQueue.add(mStringRequest);
     }
+
+    private void sendRequestUpComing() {
+        mRequestQueue = Volley.newRequestQueue(this);
+        loading3.setVisibility(View.VISIBLE);
+        Random random = new Random();
+        int pageNumber = random.nextInt(5) + 11;
+        String url = "https://moviesapi.ir/api/v1/movies?page=" + pageNumber;
+        mStringRequest3 = new StringRequest(Request.Method.GET, url, response -> {
+            Gson gson = new Gson();
+            loading3.setVisibility(View.GONE);
+            ListFilm items = gson.fromJson(response, ListFilm.class);
+            adapterUpComing = new FilmListAdapter(items);
+            recycleViewUpcoming.setAdapter(adapterUpComing);
+        }, error -> {
+            loading3.setVisibility(View.GONE);
+            Log.i("Play On", "onErrorResponse: " + error.toString());
+        });
+        mRequestQueue.add(mStringRequest3);
+    }
+
+    private void sendRequestNew() {
+        mRequestQueue = Volley.newRequestQueue(this);
+        loading4.setVisibility(View.VISIBLE);
+        Random random = new Random();
+        int pageNumber = random.nextInt(5) + 16;
+        String url = "https://moviesapi.ir/api/v1/movies?page=" + pageNumber;
+        mStringRequest = new StringRequest(Request.Method.GET, url, response -> {
+            Gson gson = new Gson();
+            loading4.setVisibility(View.GONE);
+            ListFilm items = gson.fromJson(response, ListFilm.class);
+            adapterNew = new FilmListAdapter(items);
+            recycleViewNew.setAdapter(adapterNew);
+        }, error -> {
+            loading4.setVisibility(View.GONE);
+            Log.i("Play On", "onErrorResponse: " + error.toString());
+        });
+        mRequestQueue.add(mStringRequest);
+    }
+
 
     private void initView() {
         viewPager2 = findViewById(R.id.viewpageSlider);
