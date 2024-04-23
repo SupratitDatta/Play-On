@@ -21,19 +21,19 @@ import com.example.playon.Domains.ListFilm;
 import com.example.playon.R;
 import com.google.gson.Gson;
 
-public class FavouritesActivity extends AppCompatActivity {
+public class WatchlistActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapterBestMovies,adapterUpComing;
     private RecyclerView recycleViewBestMovies,recycleViewUpcoming;
     private RequestQueue mRequestQueue;
     private StringRequest mStringRequest,mStringRequest3;
     private ProgressBar loading1,loading2;
     private ViewPager2 viewPager2;
-    private ImageView homeImg,profileImg,watchlistImg,explorerImg;
+    private ImageView homeImg,profileImg,favouritesImg,explorerImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favourites);
+        setContentView(R.layout.activity_watchlist);
         initView();
         sendRequestBestMovies();
         sendRequestUpComing();
@@ -42,7 +42,7 @@ public class FavouritesActivity extends AppCompatActivity {
     private void sendRequestBestMovies() {
         mRequestQueue = Volley.newRequestQueue(this);
         loading1.setVisibility(View.VISIBLE);
-        String url = "https://moviesapi.ir/api/v1/movies?page=4";
+        String url = "https://moviesapi.ir/api/v1/movies?page=17";
         mStringRequest = new StringRequest(Request.Method.GET, url, response -> {
             Gson gson = new Gson();
             loading1.setVisibility(View.GONE);
@@ -59,7 +59,7 @@ public class FavouritesActivity extends AppCompatActivity {
     private void sendRequestUpComing() {
         mRequestQueue = Volley.newRequestQueue(this);
         loading2.setVisibility(View.VISIBLE);
-        String url = "https://moviesapi.ir/api/v1/movies?page=3";
+        String url = "https://moviesapi.ir/api/v1/movies?page=18";
         mStringRequest3 = new StringRequest(Request.Method.GET, url, response -> {
             Gson gson = new Gson();
             loading2.setVisibility(View.GONE);
@@ -84,29 +84,29 @@ public class FavouritesActivity extends AppCompatActivity {
 
         homeImg=findViewById(R.id.home);
         explorerImg=findViewById(R.id.explorer);
-        watchlistImg=findViewById(R.id.watchlist);
+        favouritesImg=findViewById(R.id.favourites);
         profileImg=findViewById(R.id.profile_pic);
 
         homeImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FavouritesActivity.this, MainActivity.class));
-                Toast.makeText(FavouritesActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(WatchlistActivity.this, MainActivity.class));
+                Toast.makeText(WatchlistActivity.this, "Home", Toast.LENGTH_SHORT).show();
+            }
+        });
+        favouritesImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WatchlistActivity.this, FavouritesActivity.class));
+                Toast.makeText(WatchlistActivity.this, "Favourites", Toast.LENGTH_SHORT).show();
             }
         });
 
-        watchlistImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FavouritesActivity.this, WatchlistActivity.class));
-                Toast.makeText(FavouritesActivity.this, "Watchlist", Toast.LENGTH_SHORT).show();
-            }
-        });
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FavouritesActivity.this, ProfileActivity.class));
-                Toast.makeText(FavouritesActivity.this, "Profile", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(WatchlistActivity.this, ProfileActivity.class));
+                Toast.makeText(WatchlistActivity.this, "Profile", Toast.LENGTH_SHORT).show();
             }
         });
     }
