@@ -4,8 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_color">#121212</color>
     <color name="main_color2">#222222</color>
-    <color name="orange">#FF033E</color>
-    <color name="yellow">#FF033E</color>
+    <color name="orange">#DFA801</color>
+    <color name="crimson">#FF033E</color>
     <color name="dark_blue">#252836</color>
     <color name="grey">#9F9A9A</color>
 </resources>

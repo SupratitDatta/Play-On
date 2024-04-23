@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar loading1,loading2,loading3,loading4;
     private ViewPager2 viewPager2;
     private Handler slideHandler = new Handler();
-    private ImageView profileImg;
+    private ImageView profileImg, favouritesImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,13 +151,21 @@ public class MainActivity extends AppCompatActivity {
         loading3=findViewById(R.id.progressBar3);
         loading4=findViewById(R.id.progressBar4);
 
+        favouritesImg=findViewById(R.id.favourites);
         profileImg=findViewById(R.id.profile_pic);
 
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-                Toast.makeText(MainActivity.this, "Redirecting to Profile Page", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
+            }
+        });
+        favouritesImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FavouritesActivity.class));
+                Toast.makeText(MainActivity.this, "Favourites", Toast.LENGTH_SHORT).show();
             }
         });
     }
