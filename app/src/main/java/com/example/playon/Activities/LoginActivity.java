@@ -83,7 +83,6 @@ public class LoginActivity extends AppCompatActivity {
         logIn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                signin_progressbar.setVisibility(View.VISIBLE);
 
                 String email,password;
                 email = String.valueOf(userEmail.getText());
